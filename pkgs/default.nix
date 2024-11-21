@@ -1,8 +1,6 @@
 { config, pkgs, fenix, system, ... }:
 
 {
-  nixpkgs.overlays = [ fenix.overlays.default ];
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
