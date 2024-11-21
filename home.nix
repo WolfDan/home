@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./programs/home_manager.nix
     ./pkgs/default.nix
     ./programs/nushell.nix
     ./programs/starship.nix
@@ -61,7 +62,4 @@
     # TODO https://github.com/NixOS/nixpkgs/pull/343036
     # EDITOR = "emacs";
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }

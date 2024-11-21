@@ -9,3 +9,10 @@ sudo (which nix) run .#nixosConfigurations.nixos.config.system.build.tarballBuil
 ```
 
 This will generate a tar file which you'll install with nixoswsl
+
+# on nixos
+
+```
+rm -rf ~/.config/home-manager
+git clone https://github.com/WolfDan/home.git ~/.config/home-manager
+```
