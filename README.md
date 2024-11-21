@@ -15,4 +15,6 @@ This will generate a tar file which you'll install with nixoswsl
 ```
 rm -rf ~/.config/home-manager
 git clone https://github.com/WolfDan/home.git ~/.config/home-manager
+nix run home-manager/master -- init --switch
+home-manager switch
 ```

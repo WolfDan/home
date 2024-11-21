@@ -32,4 +32,8 @@
     enableOnBoot = true;
     autoPrune.enable = true;
   };
+
+  # enable dynamic loading
+  # this is mostly for vscode :p
+  programs.nix-ld.enable = true;
 }
