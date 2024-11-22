@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
-  miseCmd = "${config.home.profileDirectory}/bin/mise";
+  cfg = config.programs.mise;
 in
 {
   programs = {
@@ -23,7 +23,7 @@ in
           mkdir $mise_cache
         }
 
-        ${miseCmd} activate nu | save --force ${config.xdg.cacheHome}/mise/init.nu
+        ${lib.getExe cfg.package} activate nu | save --force ${config.xdg.cacheHome}/mise/init.nu
       '';
       extraConfig = ''
         use ${config.xdg.cacheHome}/mise/init.nu

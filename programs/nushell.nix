@@ -30,6 +30,9 @@
           $"($env.HOME)/.nix-profile"
         ]
       '';
+      shellAliases = {
+        nrs = "sudo nixos-rebuild switch --flake ~/.config/home-manager";
+      };
     };
   };
 }

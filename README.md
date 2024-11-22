@@ -24,24 +24,20 @@ https://github.com/nix-community/nixos-wsl
 
 # On NixOS
 
-## Configure home manager
 
-this is important, as long you don't need changes in NixOS itself you can use home-manager
-is way faster than recompiling NixOS from scratch and the result is basically the same
+## When doing changes to any nix file
 
-```
-rm -rf ~/.config/home-manager
-git clone https://github.com/WolfDan/home.git ~/.config/home-manager
-nix run home-manager/master -- init --switch
-home-manager switch
-```
-
-## rebuild NixOS when doing changes inside NixOS
-
-In the case that you did a change to NixOS directly use the following command
-to rebuild NixOS
-
+If you do changes to NixOS or home manager you need to apply them
 
 ```
-sudo nixos-rebuild switch --flake .config/home-manager
+sudo nixos-rebuild switch --flake ~/.config/home-manager
 ```
+
+or using the nushell alias
+
+```
+nrs
+```
+
+Keep in mind that if you modify NixOS specific files it will build the whole OS
+otherwise it will only do home-manager related tasks which are fast
