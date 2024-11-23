@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   system = {
     stateVersion = "24.05";
   };
@@ -12,7 +11,7 @@
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
       use-xdg-base-directories = true;
       warn-dirty = false;
     };

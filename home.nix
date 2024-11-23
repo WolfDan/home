@@ -1,5 +1,3 @@
-{ lib, config, pkgs, ... }:
-
 {
   imports = [
     ./programs/home_manager.nix

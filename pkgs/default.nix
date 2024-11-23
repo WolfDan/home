@@ -1,6 +1,9 @@
-{ config, pkgs, fenix, system, ... }:
-
 {
+  pkgs,
+  fenix,
+  system,
+  ...
+}: {
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -20,8 +23,12 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    nixfmt-rfc-style
-    nixpkgs-fmt
+
+    # formatter
+    alejandra
+    # lsp
+    nixd
+    # rust
     (fenix.packages.${system}.complete.withComponents [
       "cargo"
       "clippy"
@@ -30,9 +37,13 @@
       "rustfmt"
     ])
     rust-analyzer-nightly
+    # beam
     beam.packages.erlang_27.elixir_1_17
     beam.packages.erlang_27.erlang
     beam.packages.erlang_27.hex
+    # wget for vs code server
     wget
+    # show system
+    fastfetch
   ];
 }

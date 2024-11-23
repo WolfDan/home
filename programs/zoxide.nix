@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   programs = {
     # Type `z <pat>` to cd to some directory

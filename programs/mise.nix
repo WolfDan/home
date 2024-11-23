@@ -1,8 +1,10 @@
-{ config, pkgs, lib, ... }:
-let
-  cfg = config.programs.mise;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.programs.mise;
+in {
   programs = {
     # mise
     mise = {

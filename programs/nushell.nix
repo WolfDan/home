@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   programs = {
     # Nushell
@@ -11,7 +9,7 @@
         $env.PATH = (
           $env.PATH | split row (char esep)
             | append ($env.HOME | path join .nix-profile bin)
-            | append /nix/var/nix/profiles/default/bin 
+            | append /nix/var/nix/profiles/default/bin
             | append /usr/local/bin
             | uniq # filter so the paths are unique
         )

@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   programs = {
     # starship shell display/theme
