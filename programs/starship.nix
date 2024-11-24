@@ -4,6 +4,7 @@
     starship = {
       enable = true;
       enableNushellIntegration = true;
+      catppuccin.enable = true;
     };
   };
 }

@@ -1,25 +1,32 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  user = "eidatyr";
+in {
   system = {
     stateVersion = "24.05";
   };
 
   # enable nushell as default on the nixos system
-  users.users.eidatyr = {
+  users.users.${user} = {
     shell = pkgs.nushell;
   };
 
   nix = {
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 1d";
+    };
     settings = {
       auto-optimise-store = true;
+      accept-flake-config = true;
       experimental-features = ["nix-command" "flakes"];
-      use-xdg-base-directories = true;
       warn-dirty = false;
+      trusted-users = ["${user}"];
     };
   };
 
   wsl = {
     enable = true;
-    defaultUser = "eidatyr";
+    defaultUser = "${user}";
 
     docker-desktop = {
       enable = true;

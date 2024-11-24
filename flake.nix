@@ -13,6 +13,7 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = {
@@ -20,6 +21,7 @@
     home-manager,
     fenix,
     nixos-wsl,
+    catppuccin,
     ...
   }: let
     system = "x86_64-linux";
@@ -35,11 +37,17 @@
         modules = [
           nixos-wsl.nixosModules.default
           ./nixos/wsl/eidatyr.nix
+          catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.eidatyr = import ./home.nix;
+            home-manager.users.eidatyr = {
+              imports = [
+                ./home.nix
+                catppuccin.homeManagerModules.catppuccin
+              ];
+            };
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix

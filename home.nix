@@ -11,6 +11,8 @@
     ./programs/git.nix
   ];
 
+  catppuccin.flavor = "mocha";
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "eidatyr";
